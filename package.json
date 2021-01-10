@@ -1,0 +1,27 @@
+{
+  "name": "socketio",
+  "version": "1.0.0",
+  "description": "Learning SocketIO",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/SilvenLEAF/SocketIO.git"
+  },
+  "keywords": [
+    "SocketIO",
+    "SilvenLEAF"
+  ],
+  "author": "SilvenLEAF",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/SilvenLEAF/SocketIO/issues"
+  },
+  "homepage": "https://github.com/SilvenLEAF/SocketIO#readme",
+  "dependencies": {
+    "express": "^4.17.1",
+    "socket.io": "^3.0.5"
+  }
+}
