@@ -1,13 +1,19 @@
 const express = require('express');
+const http = require('http');
+
 const path = require('path');
-const io = require('socket.io')(3000);
 
 
 
-// ----------------------FIRING EXPRESS APP
+
+// ----------------------FIRING EXPRESS APP and CREATING HTTP SERVER
 const app = express();
-app.use(express.static(path.join(__dirname, 'client')));
 
+const server = http.createServer(app);
+const io = require('socket.io')(server);
+
+
+app.use(express.static(path.join(__dirname, 'client')));
 
 
 const users = {}
@@ -60,6 +66,6 @@ app.use((err, req, res, next)=>{
 
 // ---------------------------LISTEN
 const PORT = process.env.PORT || 5000;
-app.listen(PORT, ()=>{
+server.listen(PORT, ()=>{
   console.log(`Server is running on port ${ PORT }`);
 })
