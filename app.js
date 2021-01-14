@@ -16,7 +16,7 @@ const io = require('socket.io')(server);
 app.use(express.static(path.join(__dirname, 'client')));
 
 
-const users = {}
+const users = {} //normally you'd use Database, consider it as our database 
 
 io.on('connection', socket => {
   socket.on('new-user', name => {
