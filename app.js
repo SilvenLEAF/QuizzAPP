@@ -1,7 +1,13 @@
+// core modules
 const express = require('express');
 const http = require('http');
 
 const path = require('path');
+
+
+
+
+
 
 
 
@@ -18,6 +24,16 @@ app.use(express.static(path.join(__dirname, 'client')));
 
 const users = {}
 
+
+
+
+
+
+
+
+/* -----------------------------------
+.           SOCKET IO events
+----------------------------------- */
 io.on('connection', socket => {
   socket.on('new-user', name => {
     users[socket.id] = name
@@ -30,7 +46,10 @@ io.on('connection', socket => {
     socket.broadcast.emit('user-disconnected', users[socket.id])
     delete users[socket.id]
   })
-})
+});
+
+
+
 
 
 
@@ -56,7 +75,7 @@ app.use((err, req, res, next)=>{
   console.log(err);
 
   res.json({ msg: `Server error`, error: err.message });
-})
+});
 
 
 
